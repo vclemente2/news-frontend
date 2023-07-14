@@ -11,8 +11,8 @@
   width: 100%;
 }
 .header__logo {
-  flex-grow: 2;
   color: #f6f6f6;
+  flex-grow: 2;
 }
 @media screen and (min-width: 980px) {
   .header__logo {
@@ -20,6 +20,7 @@
   }
 }
 .header__menuButton {
+  cursor: pointer;
   display: flex;
 }
 @media screen and (min-width: 980px) {
@@ -41,6 +42,22 @@
 }
 .header__menu__link {
   color: #f6f6f6;
+  position: relative;
+}
+.header__menu__link:before {
+  background-color: #f6f6f6;
+  bottom: -5px;
+  content: "";
+  height: 2px;
+  left: 0;
+  position: absolute;
+  transition: all 0.3s ease-in-out 0s;
+  width: 0;
+  visibility: hidden;
+}
+.header__menu__link:hover:before {
+  width: 100%;
+  visibility: visible;
 }
 .header__search {
   align-items: center;
