@@ -1,0 +1,83 @@
+@import '../variables';
+@import '../breakpoints';
+
+.header {
+    background-color: $blue;
+    display: flex;
+    height: 4rem;
+
+    &__container{
+        align-items: center;
+        display: flex;
+        gap: 1rem;
+        justify-content: space-between;
+        width: 100%;
+    }
+    
+    &__logo{
+        flex-grow: 2;
+        color: $light-grey;
+
+        @media screen and (min-width: $desktop_xsm){
+            flex-grow: 0;
+        }
+    }
+
+    &__menuButton{
+        display: flex;
+
+        @media screen and (min-width: $desktop_xsm){
+            display: none;
+        }
+    }
+
+    &__menu {
+        visibility: hidden;
+
+        @media screen and (min-width: $desktop_xsm){
+            visibility: visible;
+        }
+
+        &__list{
+            display: flex;
+            gap: 2rem;
+        }
+
+       &__link{
+        color: $light-grey;
+       }
+    }
+
+    &__search{
+        align-items: center;
+        border: none;
+        display: flex;
+        position: relative;
+        
+        &__input{
+            border: none;
+            border-radius: 15px;
+            display: none;
+            outline: transparent;
+            padding: 0.5rem;
+            width: 100%;
+
+            @media screen and (min-width: $desktop_xsm){
+                display: block;
+            }
+        }
+
+        &__icon{
+            display: flex;
+            position: absolute;
+            right: 0;
+            cursor: pointer;
+
+            @media screen and (min-width: $desktop_xsm) {
+                filter: invert(43%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(96%) contrast(95%);
+                padding: 0 5px;
+            }
+        }
+
+    }
+}
