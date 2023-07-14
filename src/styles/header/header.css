@@ -12,7 +12,7 @@
 }
 .header__logo {
   color: #f6f6f6;
-  flex-grow: 2;
+  flex-grow: 1;
 }
 @media screen and (min-width: 980px) {
   .header__logo {
@@ -29,11 +29,11 @@
   }
 }
 .header__menu {
-  visibility: hidden;
+  display: none;
 }
 @media screen and (min-width: 980px) {
   .header__menu {
-    visibility: visible;
+    display: flex;
   }
 }
 .header__menu__list {
@@ -53,12 +53,12 @@
   left: 0;
   position: absolute;
   transition: all 0.3s ease-in-out 0s;
-  width: 0;
   visibility: hidden;
+  width: 0;
 }
 .header__menu__link:hover:before {
-  width: 100%;
   visibility: visible;
+  width: 100%;
 }
 .header__search {
   align-items: center;
@@ -72,7 +72,6 @@
   display: none;
   outline: transparent;
   padding: 0.5rem;
-  width: 100%;
 }
 @media screen and (min-width: 980px) {
   .header__search__input {
@@ -81,13 +80,13 @@
 }
 .header__search__icon {
   display: flex;
-  position: absolute;
-  right: 0;
   cursor: pointer;
 }
 @media screen and (min-width: 980px) {
   .header__search__icon {
     filter: invert(43%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(96%) contrast(95%);
     padding: 0 5px;
+    position: absolute;
+    right: 0;
   }
 }/*# sourceMappingURL=header.css.map */

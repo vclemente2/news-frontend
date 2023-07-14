@@ -6,4 +6,7 @@
   align-items: center;
   display: flex;
   flex-direction: column;
+}
+.footer__social {
+  display: flex;
 }/*# sourceMappingURL=footer.css.map */

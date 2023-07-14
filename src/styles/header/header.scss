@@ -11,12 +11,12 @@
         display: flex;
         gap: 1rem;
         justify-content: space-between;
-        width: 100%;
+        width:100%;
     }
     
     &__logo{
         color: $light-grey;
-        flex-grow: 2;
+        flex-grow: 1;
 
         @media screen and (min-width: $desktop_xsm){
             flex-grow: 0;
@@ -33,10 +33,10 @@
     }
 
     &__menu {
-        visibility: hidden;
+        display: none;
 
         @media screen and (min-width: $desktop_xsm){
-            visibility: visible;
+            display: flex;
         }
 
         &__list{
@@ -57,13 +57,13 @@
             left: 0;
             position: absolute;
             transition: all .3s ease-in-out 0s;
-            width: 0;
             visibility: hidden;
+            width: 0;
         }
 
         &:hover:before{
-            width: 100%;
             visibility: visible;
+            width: 100%;
         }
        }
     }
@@ -80,7 +80,6 @@
             display: none;
             outline: transparent;
             padding: 0.5rem;
-            width: 100%;
 
             @media screen and (min-width: $desktop_xsm){
                 display: block;
@@ -90,15 +89,14 @@
 
         &__icon{
             display: flex;
-            position: absolute;
-            right: 0;
             cursor: pointer;
 
             @media screen and (min-width: $desktop_xsm) {
                 filter: invert(43%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(96%) contrast(95%);
                 padding: 0 5px;
+                position: absolute;
+                right: 0;
             }
         }
-
     }
 }
