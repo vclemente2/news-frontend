@@ -43,6 +43,7 @@
 .header__menu__link {
   color: #f6f6f6;
   position: relative;
+  text-transform: uppercase;
 }
 .header__menu__link:before {
   background-color: #f6f6f6;

@@ -1,0 +1,13 @@
+@import '../variables';
+@import '../breakpoints';
+
+.footer {
+    color: $light-grey;
+    background: $blue;
+
+    &__container{
+        align-items: center;
+        display:flex;
+        flex-direction: column;
+    }
+}

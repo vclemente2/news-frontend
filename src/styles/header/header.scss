@@ -47,6 +47,7 @@
        &__link{
         color: $light-grey;
         position: relative;
+        text-transform: uppercase;
 
         &:before{
             background-color: $light-grey;

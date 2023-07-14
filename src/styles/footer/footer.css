@@ -1,0 +1,9 @@
+.footer {
+  color: #f6f6f6;
+  background: #282b57;
+}
+.footer__container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}/*# sourceMappingURL=footer.css.map */
