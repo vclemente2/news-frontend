@@ -2,6 +2,8 @@
   background-color: #282b57;
   display: flex;
   height: 4rem;
+  position: sticky;
+  top: 0;
 }
 .header__container {
   align-items: center;

@@ -8,7 +8,7 @@
 
 .container {
   padding:  1rem $padding-horizontal-mobile;
-  max-width: $desktop_md;
+  max-width: $desktop_lg;
   margin: 0 auto;
 
   @media screen and (min-width: $mobile-md) {

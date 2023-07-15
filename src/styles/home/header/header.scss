@@ -5,6 +5,8 @@
     background-color: $blue;
     display: flex;
     height: 4rem;
+    position: sticky;
+    top: 0;
 
     &__container{
         align-items: center;
