@@ -2,8 +2,8 @@
 @import "./breakpoints";
 
 .container {
-  padding:  1rem $padding-horizontal-mobile-sm;
+  padding:  1rem $padding-horizontal-mobile;
   @media screen and (min-width: $mobile-md) {
-    padding:  2rem $padding-horizontal-mobile-md;
+    padding:  1rem $padding-horizontal-desktop;
   }
 }

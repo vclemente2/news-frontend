@@ -2,16 +2,51 @@
 @import '../breakpoints';
 
 .footer {
-    color: $light-grey;
+    align-items: center;
     background: $blue;
+    color: $light-grey;
+    display: flex;
+    justify-content: center;
+
 
     &__container{
         align-items: center;
         display:flex;
         flex-direction: column;
+        gap: 1rem;
+
+        @media screen and (min-width: $desktop-xsm){
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+        }
+    }
+
+    &__logo{
+        align-items: center;
+        display: flex;
+        height: 2.25rem;
     }
 
     &__social{
         display: flex;
+        gap: 1rem;
+
+        &__link{
+            height: 2.25rem;
+        }
+
+        &__icon{
+            &:active{
+                filter: brightness(0) saturate(100%) invert(42%) sepia(53%) saturate(4798%) hue-rotate(358deg) brightness(88%) contrast(86%);
+            }
+
+            @media screen and (min-width: $desktop-xsm){
+                &:hover{
+                    filter: brightness(0) saturate(100%) invert(42%) sepia(53%) saturate(4798%) hue-rotate(358deg) brightness(88%) contrast(86%);
+                }
+            }
+
+        }
     }
 }
