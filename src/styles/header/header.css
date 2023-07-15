@@ -52,13 +52,19 @@
   height: 2px;
   left: 0;
   position: absolute;
-  transition: all 0.3s ease-in-out 0s;
+  transition: width 0.3s ease-in-out 0s;
   visibility: hidden;
   width: 0;
 }
 .header__menu__link:hover:before {
   visibility: visible;
   width: 100%;
+}
+.header__menu__link:active {
+  color: #d25216;
+}
+.header__menu__link:active:before {
+  background-color: #d25216;
 }
 .header__search {
   align-items: center;

@@ -56,7 +56,7 @@
             height: 2px;
             left: 0;
             position: absolute;
-            transition: all .3s ease-in-out 0s;
+            transition: width .3s ease-in-out 0s;
             visibility: hidden;
             width: 0;
         }
@@ -64,6 +64,14 @@
         &:hover:before{
             visibility: visible;
             width: 100%;
+        }
+
+        &:active{
+            color: $orange;
+        }
+
+        &:active:before{
+            background-color: $orange;
         }
        }
     }
