@@ -7,3 +7,15 @@
     padding:  1rem $padding-horizontal-desktop;
   }
 }
+
+.logo {
+  &__small{
+    height: 3rem;
+    width: 3rem;
+  }
+  &__medium{
+    height: 4rem;
+    width: 4rem;
+  }
+}
+

@@ -5,4 +5,13 @@
   .container {
     padding: 1rem 2rem;
   }
+}
+
+.logo__small {
+  height: 3rem;
+  width: 3rem;
+}
+.logo__medium {
+  height: 4rem;
+  width: 4rem;
 }/*# sourceMappingURL=tema.css.map */

@@ -21,6 +21,11 @@
         @media screen and (min-width: $desktop_xsm){
             flex-grow: 0;
         }
+
+        &__link{
+           display: flex;
+           max-width: 4rem;
+        }
     }
 
     &__menuButton{

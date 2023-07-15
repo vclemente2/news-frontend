@@ -19,6 +19,10 @@
     flex-grow: 0;
   }
 }
+.header__logo__link {
+  display: flex;
+  max-width: 4rem;
+}
 .header__menuButton {
   cursor: pointer;
   display: flex;
