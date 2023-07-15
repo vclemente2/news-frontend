@@ -1,0 +1,42 @@
+@import '../../variables';
+@import '../../breakpoints';
+
+.main{
+    min-height: calc(100vh - 4rem);
+    background-color: $grey;
+
+    &__list{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+
+        @media screen and (min-width: $mobile-md){
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center
+        }
+
+        &__item{
+            background-color: $light-grey;
+            border-radius: 10px;
+            padding: 1rem;
+
+            @media screen and (min-width: $mobile-md){
+                max-width: 44%;
+            }
+
+            @media screen and (min-width: $desktop_xsm){
+                max-width: 29%;
+            }
+
+            @media screen and (min-width: $desktop_lg){
+                max-width: 20%;
+            }
+        }
+
+        &__image{
+            width: 100%;
+        }
+    }
+}

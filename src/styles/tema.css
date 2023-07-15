@@ -1,5 +1,12 @@
+:root {
+  color: #242536;
+  font-family: Roboto, sans-serif;
+}
+
 .container {
   padding: 1rem 1rem;
+  max-width: 1280px;
+  margin: 0 auto;
 }
 @media screen and (min-width: 768px) {
   .container {

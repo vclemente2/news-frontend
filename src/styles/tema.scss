@@ -1,8 +1,16 @@
 @import "./variables";
 @import "./breakpoints";
 
+:root {
+  color: $dark;
+  font-family: Roboto, sans-serif;
+}
+
 .container {
   padding:  1rem $padding-horizontal-mobile;
+  max-width: $desktop_md;
+  margin: 0 auto;
+
   @media screen and (min-width: $mobile-md) {
     padding:  1rem $padding-horizontal-desktop;
   }
@@ -18,4 +26,3 @@
     width: 4rem;
   }
 }
-
