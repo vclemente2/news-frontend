@@ -16,10 +16,12 @@ export class SearchController {
     this.#searchInput.addEventListener("focus", () => {
       this.#searchView.hiddenButton();
     });
-    this.#searchInput.addEventListener("blur", () => {
-      if (!this.#searchModel.searchValue) this.#searchView.showButton();
-
-      if (window.innerWidth < 980) this.#searchView.toggleInputVisibility();
+    this.#searchInput.addEventListener("blur", (event) => {
+      if (window.innerWidth < 980) {
+        this.#searchView.toggleInputVisibility(event.type);
+      } else {
+        !this.#searchModel.searchValue ? this.#searchView.showButton() : "";
+      }
     });
     this.#searchInput.addEventListener("change", (event) => {
       this.#searchModel.update(event.target.value);
@@ -28,8 +30,8 @@ export class SearchController {
       this.printInput();
     });
     if (window.innerWidth < 980)
-      this.#searchButton.addEventListener("click", () => {
-        this.#searchView.toggleInputVisibility();
+      this.#searchButton.addEventListener("click", (event) => {
+        this.#searchView.toggleInputVisibility(event.type);
       });
   }
 

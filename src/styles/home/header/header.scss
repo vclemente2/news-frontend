@@ -3,6 +3,7 @@
 @import "../../mixin";
 
 .header {
+    @include shadow();
     background-color: $blue;
     display: flex;
     height: 4rem;
@@ -49,22 +50,43 @@
     }
 
     &__menu {
-        display: none;
+        background-color: $black;
+        height: calc(100vh - 64px);
+        min-width: 40vw;
+        padding: 1rem;
+        position: absolute;
+        right: 0;
+        top: 64px;
+        visibility: hidden;
 
         @media screen and (min-width: $desktop_xsm) {
+            background-color: inherit;
             display: flex;
             flex-grow: 1;
+            height: auto;
+            min-width: none;
+            padding: 0;
+            position: relative;
+            right: auto;
+            top: auto;
+            visibility: visible;
         }
 
         &__list {
             display: flex;
+            flex-direction: column;
             gap: 2rem;
+
+            @media screen and (min-width: $desktop_xsm) {
+                flex-direction: row;
+            }
         }
 
         &__link {
             color: $light-grey;
             position: relative;
             text-transform: uppercase;
+            // width: 100%;
 
             &:before {
                 background-color: $light-grey;
