@@ -12,6 +12,11 @@
   justify-content: space-between;
   width: 100%;
 }
+@media screen and (min-width: 980px) {
+  .header__container {
+    gap: 2rem;
+  }
+}
 .header__logo {
   color: #f6f6f6;
   flex-grow: 1;
@@ -29,6 +34,9 @@
   cursor: pointer;
   display: flex;
 }
+.header__menuButton :active {
+  filter: brightness(0) saturate(100%) invert(42%) sepia(53%) saturate(4798%) hue-rotate(358deg) brightness(88%) contrast(86%);
+}
 @media screen and (min-width: 980px) {
   .header__menuButton {
     display: none;
@@ -40,6 +48,7 @@
 @media screen and (min-width: 980px) {
   .header__menu {
     display: flex;
+    flex-grow: 1;
   }
 }
 .header__menu__list {
@@ -79,26 +88,46 @@
   position: relative;
 }
 .header__search__input {
+  box-shadow: 2px 2px 10px rgba(36, 37, 54, 0.3);
   border: none;
   border-radius: 15px;
-  display: none;
   outline: transparent;
-  padding: 0.5rem;
+  transition: width 0.5s;
+  visibility: hidden;
+  width: 0;
 }
 @media screen and (min-width: 980px) {
   .header__search__input {
-    display: block;
+    padding: 0.5rem;
+    visibility: visible;
+    width: auto;
   }
 }
-.header__search__icon {
-  display: flex;
+.header__search__input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("../../../assets/images/close_FILL0_wght700_GRAD0_opsz20.svg");
+  background-size: cover;
   cursor: pointer;
+  height: 16px;
+  width: 16px;
+}
+.header__search__icon {
+  cursor: pointer;
+  display: flex;
+}
+.header__search__icon:active {
+  filter: brightness(0) saturate(100%) invert(42%) sepia(53%) saturate(4798%) hue-rotate(358deg) brightness(88%) contrast(86%);
 }
 @media screen and (min-width: 980px) {
   .header__search__icon {
+    cursor: auto;
     filter: invert(43%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(96%) contrast(95%);
     padding: 0 5px;
     position: absolute;
     right: 0;
+  }
+  .header__search__icon:active {
+    filter: invert(43%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(96%) contrast(95%);
   }
 }/*# sourceMappingURL=header.css.map */

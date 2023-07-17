@@ -1,0 +1,8 @@
+@mixin shadow() {
+    box-shadow: 2px 2px 10px rgba($dark, 0.3);
+}
+
+@mixin primaryColorFilter() {
+    filter: brightness(0) saturate(100%) invert(42%) sepia(53%) saturate(4798%) hue-rotate(358deg) brightness(88%)
+        contrast(86%);
+}

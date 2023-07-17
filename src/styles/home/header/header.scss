@@ -1,5 +1,6 @@
-@import '../../variables';
-@import '../../breakpoints';
+@import "../../variables";
+@import "../../breakpoints";
+@import "../../mixin";
 
 .header {
     background-color: $blue;
@@ -8,33 +9,41 @@
     position: sticky;
     top: 0;
 
-    &__container{
+    &__container {
         align-items: center;
         display: flex;
         gap: 1rem;
         justify-content: space-between;
-        width:100%;
+        width: 100%;
+
+        @media screen and (min-width: $desktop_xsm) {
+            gap: 2rem;
+        }
     }
-    
-    &__logo{
+
+    &__logo {
         color: $light-grey;
         flex-grow: 1;
 
-        @media screen and (min-width: $desktop_xsm){
+        @media screen and (min-width: $desktop_xsm) {
             flex-grow: 0;
         }
 
-        &__link{
-           display: flex;
-           max-width: 4rem;
+        &__link {
+            display: flex;
+            max-width: 4rem;
         }
     }
 
-    &__menuButton{
+    &__menuButton {
         cursor: pointer;
         display: flex;
 
-        @media screen and (min-width: $desktop_xsm){
+        :active {
+            @include primaryColorFilter();
+        }
+
+        @media screen and (min-width: $desktop_xsm) {
             display: none;
         }
     }
@@ -42,75 +51,98 @@
     &__menu {
         display: none;
 
-        @media screen and (min-width: $desktop_xsm){
+        @media screen and (min-width: $desktop_xsm) {
             display: flex;
+            flex-grow: 1;
         }
 
-        &__list{
+        &__list {
             display: flex;
             gap: 2rem;
         }
 
-       &__link{
-        color: $light-grey;
-        position: relative;
-        text-transform: uppercase;
+        &__link {
+            color: $light-grey;
+            position: relative;
+            text-transform: uppercase;
 
-        &:before{
-            background-color: $light-grey;
-            bottom: -5px;
-            content: "";
-            height: 2px;
-            left: 0;
-            position: absolute;
-            transition: width .3s ease-in-out 0s;
-            visibility: hidden;
-            width: 0;
-        }
+            &:before {
+                background-color: $light-grey;
+                bottom: -5px;
+                content: "";
+                height: 2px;
+                left: 0;
+                position: absolute;
+                transition: width 0.3s ease-in-out 0s;
+                visibility: hidden;
+                width: 0;
+            }
 
-        &:hover:before{
-            visibility: visible;
-            width: 100%;
-        }
+            &:hover:before {
+                visibility: visible;
+                width: 100%;
+            }
 
-        &:active{
-            color: $orange;
-        }
+            &:active {
+                color: $orange;
+            }
 
-        &:active:before{
-            background-color: $orange;
+            &:active:before {
+                background-color: $orange;
+            }
         }
-       }
     }
 
-    &__search{
+    &__search {
         align-items: center;
         border: none;
         display: flex;
         position: relative;
 
-        &__input{
+        &__input {
+            @include shadow();
             border: none;
             border-radius: 15px;
-            display: none;
             outline: transparent;
-            padding: 0.5rem;
-
-            @media screen and (min-width: $desktop_xsm){
-                display: block;
-            }
-
-        }
-
-        &__icon{
-            display: flex;
-            cursor: pointer;
+            transition: width 0.5s;
+            visibility: hidden;
+            width: 0;
 
             @media screen and (min-width: $desktop_xsm) {
+                padding: 0.5rem;
+                visibility: visible;
+                width: auto;
+            }
+
+            &::-webkit-search-cancel-button {
+                -webkit-appearance: none;
+                appearance: none;
+                background-image: url("../../../assets/images/close_FILL0_wght700_GRAD0_opsz20.svg");
+                background-size: cover;
+                cursor: pointer;
+                height: 16px;
+                width: 16px;
+            }
+        }
+
+        &__icon {
+            cursor: pointer;
+            display: flex;
+
+            &:active {
+                @include primaryColorFilter();
+            }
+
+            @media screen and (min-width: $desktop_xsm) {
+                cursor: auto;
                 filter: invert(43%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(96%) contrast(95%);
                 padding: 0 5px;
                 position: absolute;
                 right: 0;
+
+                &:active {
+                    filter: invert(43%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(96%) contrast(95%);
+                }
             }
         }
     }
