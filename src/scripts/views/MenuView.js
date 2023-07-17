@@ -7,6 +7,7 @@ export class MenuView {
 
   #show() {
     this.#menu.style.cssText = `
+        height: calc(100vh - 64px);
         visibility: visible;
     `;
     this.#menu.classList.add("active");
@@ -14,6 +15,7 @@ export class MenuView {
 
   #hidden() {
     this.#menu.style.cssText = `
+    height: 0;
     visibility: hidden;
     `;
     this.#menu.classList.remove("active");

@@ -51,13 +51,20 @@
 
     &__menu {
         background-color: $black;
-        height: calc(100vh - 64px);
+        box-sizing: border-box;
+        height: 0;
         min-width: 40vw;
-        padding: 1rem;
+        overflow-y: hidden;
+        padding: 0;
         position: absolute;
         right: 0;
+        scroll-behavior: smooth;
+        transition:
+            height 0.3s,
+            visibility 0.3s;
         top: 64px;
         visibility: hidden;
+        width: 0;
 
         @media screen and (min-width: $desktop_xsm) {
             background-color: inherit;
@@ -65,7 +72,6 @@
             flex-grow: 1;
             height: auto;
             min-width: none;
-            padding: 0;
             position: relative;
             right: auto;
             top: auto;
@@ -75,42 +81,73 @@
         &__list {
             display: flex;
             flex-direction: column;
-            gap: 2rem;
+            margin: 0;
 
             @media screen and (min-width: $desktop_xsm) {
                 flex-direction: row;
+                gap: 2rem;
+            }
+        }
+
+        &__item {
+            border-top: 1px solid $grey;
+            border-bottom: 1px solid $grey;
+            display: flex;
+            transition: background-color 0.3s;
+
+            &:last-child {
+                border-top: none;
+            }
+
+            &:active {
+                background-color: $grey;
+            }
+
+            @media screen and (min-width: $desktop_xsm) {
+                border: none;
+
+                &:active {
+                    background-color: inherit;
+                }
             }
         }
 
         &__link {
             color: $light-grey;
+            display: flex;
+            line-height: 2;
+            padding: 1rem;
             position: relative;
             text-transform: uppercase;
-            // width: 100%;
+            width: 100%;
 
-            &:before {
-                background-color: $light-grey;
-                bottom: -5px;
-                content: "";
-                height: 2px;
-                left: 0;
-                position: absolute;
-                transition: width 0.3s ease-in-out 0s;
-                visibility: hidden;
-                width: 0;
-            }
+            @media screen and (min-width: $desktop_xsm) {
+                padding: 0;
 
-            &:hover:before {
-                visibility: visible;
-                width: 100%;
+                &:before {
+                    background-color: $light-grey;
+                    content: "";
+                    bottom: 0;
+                    height: 2px;
+                    left: 0;
+                    position: absolute;
+                    transition: width 0.3s ease-in-out 0s;
+                    visibility: hidden;
+                    width: 0;
+                }
+
+                &:hover:before {
+                    visibility: visible;
+                    width: 100%;
+                }
+
+                &:active:before {
+                    background-color: $orange;
+                }
             }
 
             &:active {
                 color: $orange;
-            }
-
-            &:active:before {
-                background-color: $orange;
             }
         }
     }

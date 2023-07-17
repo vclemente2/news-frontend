@@ -45,13 +45,18 @@
 }
 .header__menu {
   background-color: #4c4d5e;
-  height: calc(100vh - 64px);
+  box-sizing: border-box;
+  height: 0;
   min-width: 40vw;
-  padding: 1rem;
+  overflow-y: hidden;
+  padding: 0;
   position: absolute;
   right: 0;
+  scroll-behavior: smooth;
+  transition: height 0.3s, visibility 0.3s;
   top: 64px;
   visibility: hidden;
+  width: 0;
 }
 @media screen and (min-width: 980px) {
   .header__menu {
@@ -60,7 +65,6 @@
     flex-grow: 1;
     height: auto;
     min-width: none;
-    padding: 0;
     position: relative;
     right: auto;
     top: auto;
@@ -70,38 +74,68 @@
 .header__menu__list {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  margin: 0;
 }
 @media screen and (min-width: 980px) {
   .header__menu__list {
     flex-direction: row;
+    gap: 2rem;
+  }
+}
+.header__menu__item {
+  border-top: 1px solid #e4e4e4;
+  border-bottom: 1px solid #e4e4e4;
+  display: flex;
+  transition: background-color 0.3s;
+}
+.header__menu__item:last-child {
+  border-top: none;
+}
+.header__menu__item:active {
+  background-color: #e4e4e4;
+}
+@media screen and (min-width: 980px) {
+  .header__menu__item {
+    border: none;
+  }
+  .header__menu__item:active {
+    background-color: inherit;
   }
 }
 .header__menu__link {
   color: #f6f6f6;
+  display: flex;
+  line-height: 2;
+  padding: 1rem;
   position: relative;
   text-transform: uppercase;
-}
-.header__menu__link:before {
-  background-color: #f6f6f6;
-  bottom: -5px;
-  content: "";
-  height: 2px;
-  left: 0;
-  position: absolute;
-  transition: width 0.3s ease-in-out 0s;
-  visibility: hidden;
-  width: 0;
-}
-.header__menu__link:hover:before {
-  visibility: visible;
   width: 100%;
+}
+@media screen and (min-width: 980px) {
+  .header__menu__link {
+    padding: 0;
+  }
+  .header__menu__link:before {
+    background-color: #f6f6f6;
+    content: "";
+    bottom: 0;
+    height: 2px;
+    left: 0;
+    position: absolute;
+    transition: width 0.3s ease-in-out 0s;
+    visibility: hidden;
+    width: 0;
+  }
+  .header__menu__link:hover:before {
+    visibility: visible;
+    width: 100%;
+  }
+  .header__menu__link:active:before {
+    background-color: #d25216;
+  }
 }
 .header__menu__link:active {
   color: #d25216;
-}
-.header__menu__link:active:before {
-  background-color: #d25216;
 }
 .header__search {
   align-items: center;
