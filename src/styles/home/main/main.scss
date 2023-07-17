@@ -63,6 +63,17 @@
             text-transform: uppercase;
         }
 
+        &__category {
+            align-self: flex-start;
+            background-color: $orange;
+            border-radius: 20px;
+            color: $light-grey;
+            display: flex;
+            font-size: 0.75rem;
+            margin-top: 0.5rem;
+            padding: 0.25rem;
+        }
+
         &__image {
             border-radius: 5px;
             width: 100%;

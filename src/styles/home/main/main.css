@@ -57,6 +57,16 @@
   text-align: center;
   text-transform: uppercase;
 }
+.main__list__category {
+  align-self: flex-start;
+  background-color: #d25216;
+  border-radius: 20px;
+  color: #f6f6f6;
+  display: flex;
+  font-size: 0.75rem;
+  margin-top: 0.5rem;
+  padding: 0.25rem;
+}
 .main__list__image {
   border-radius: 5px;
   width: 100%;
