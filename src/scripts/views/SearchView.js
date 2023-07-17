@@ -7,7 +7,7 @@ export class SearchView {
     this.#searchButton = searchButton;
   }
 
-  showInput() {
+  toggleInputVisibility() {
     if (window.innerWidth < 980) {
       this.#searchElement.classList.toggle("active");
 
