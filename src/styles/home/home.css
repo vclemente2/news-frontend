@@ -82,13 +82,5 @@
   width: 100%;
 }
 .main__list__link {
-  background-color: #282b57;
-  border-radius: 20px;
-  color: #f6f6f6;
   margin-top: 1rem;
-  padding: 1rem 2rem;
-  text-align: center;
-  text-transform: uppercase;
-  width: -moz-fit-content;
-  width: fit-content;
 }/*# sourceMappingURL=home.css.map */

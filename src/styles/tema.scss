@@ -1,5 +1,6 @@
 @import "./variables";
 @import "./breakpoints";
+@import "./mixin";
 
 :root {
   color: $dark;
@@ -7,22 +8,49 @@
 }
 
 .container {
-  padding:  1rem $padding-horizontal-mobile;
+  padding: 1rem $padding-horizontal-mobile;
   max-width: $desktop_lg;
   margin: 0 auto;
 
   @media screen and (min-width: $mobile-md) {
-    padding:  1rem $padding-horizontal-desktop;
+    padding: 1rem $padding-horizontal-desktop;
   }
 }
 
 .logo {
-  &__small{
+  &__small {
     height: 3rem;
     width: 3rem;
   }
-  &__medium{
+  &__medium {
     height: 4rem;
     width: 4rem;
+  }
+}
+
+.inputText {
+  padding: 0.5rem 1rem;
+}
+
+.primaryButton {
+  @include shadow();
+  background-color: $blue;
+  border: none;
+  border-radius: 20px;
+  color: $light-grey;
+  padding: 1rem 2rem;
+  transition: all 0.2s;
+  text-align: center;
+  text-transform: uppercase;
+  width: fit-content;
+
+  &--sm {
+    @extend .primaryButton;
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+  }
+
+  &:active {
+    background-color: $orange;
   }
 }
