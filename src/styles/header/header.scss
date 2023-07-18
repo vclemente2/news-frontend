@@ -91,12 +91,11 @@
 
         &__item {
             border-top: 1px solid $grey;
-            border-bottom: 1px solid $grey;
             display: flex;
             transition: background-color 0.3s;
 
             &:last-child {
-                border-top: none;
+                border-bottom: 1px solid $grey;
             }
 
             &:active {
@@ -105,6 +104,10 @@
 
             @media screen and (min-width: $desktop_xsm) {
                 border: none;
+
+                &:last-child {
+                    border-bottom: none;
+                }
 
                 &:active {
                     background-color: inherit;
@@ -176,7 +179,7 @@
             &::-webkit-search-cancel-button {
                 -webkit-appearance: none;
                 appearance: none;
-                background-image: url("../../../assets/images/close_FILL0_wght700_GRAD0_opsz20.svg");
+                background-image: url("../../assets/images/close_FILL0_wght700_GRAD0_opsz20.svg");
                 background-size: cover;
                 cursor: pointer;
                 height: 16px;

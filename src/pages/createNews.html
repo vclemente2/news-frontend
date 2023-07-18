@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super News | Criar Noticia</title>
+    <link rel="icon" type="image/png" href="../assets/images/super-news-logo.png"/>
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <link rel="stylesheet" href="../styles/normalize.css" />
+    <link rel="stylesheet" href="../styles/tema.css" />
+    <link rel="stylesheet" href="../styles/header/header.css" />
+    <link rel="stylesheet" href="../styles/footer/footer.css" />
+    <link rel="stylesheet" href="../styles/home/home.css" />
+</head>
+<body>
+    <header class="header">
+        <div class="header__container container">
+            <div class="header__logo">
+                <a class="header__logo__link" href="../../index.html"><img class="logo__medium" src="../assets/images/super-news-logo.png" alt="Logo Super Noticias"/></a>
+            </div>
+            <nav class="header__menu" data-menu>
+                <ul class="header__menu__list">
+                    <li class="header__menu__item">
+                        <a href="../../index.html" class="header__menu__link">Home</a>
+                    </li>
+                    <li class="header__menu__item">
+                        <a href="./createNews.html" class="header__menu__link">Cadastrar Notícia</a>
+                    </li>
+                    <li class="header__menu__item">
+                        <a href="./createCategory.html" class="header__menu__link">Cadastrar Categoria</a>
+                    </li>
+                </ul>
+            </nav>
+            <span class="header__menuButton" data-menuButton>
+                <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M111.869-228.282v-91.001h736.262v91.001H111.869Zm0-206.218v-91h736.262v91H111.869Zm0-206.217v-91.001h736.262v91.001H111.869Z" fill="#f6f6f6"/></svg>
+            </span>
+        </div>
+    </header>
+    <main class="main">
+        <div class="main__container container">
+            <form>
+                <label>Nome da Categoria:
+                    <input type="text"/>
+                </label>
+            </form>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer__container container">
+            <div class="footer__logo">
+                <a href="#"><img class="logo__small" src="../assets/images/super-news-logo.png"  alt="Logo Super Noticias" /></a>
+            </div>
+            <small>&copy; 2023 Vinicius Bastos Clemente</small>
+            <div class="footer__social">
+                <a class="footer__social__link" href="https://www.linkedin.com/in/vinicius-bastos-dev/" target="_blank"><img class="footer__social__icon" src="../assets/images/icons8-linkedin.svg" alt="Link para Linkedin Vinicius"/></a>
+                <a class="footer__social__link" href="https://github.com/vclemente2" target="_blank"><img class="footer__social__icon" src="../assets/images/icons8-github.svg" alt="Link para Github Vinicius"/></a>
+            </div>
+        </div>
+    </footer>
+    <script type="module" src="../js/scripts/createCategory.js"></script>
+</body>
+</html>
