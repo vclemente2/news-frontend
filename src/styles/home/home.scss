@@ -1,6 +1,6 @@
-@import "../../variables";
-@import "../../breakpoints";
-@import "../../mixin";
+@import "../variables";
+@import "../breakpoints";
+@import "../mixin";
 
 .main {
     min-height: calc(100vh - 4rem);
