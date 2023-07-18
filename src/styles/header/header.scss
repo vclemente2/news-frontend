@@ -53,7 +53,8 @@
         background-color: $black;
         box-sizing: border-box;
         height: 0;
-        min-width: 40vw;
+        width: 40vw;
+        min-width: fit-content;
         overflow-y: hidden;
         padding: 0;
         position: absolute;
@@ -64,7 +65,6 @@
             visibility 0.3s;
         top: 64px;
         visibility: hidden;
-        width: 0;
 
         @media screen and (min-width: $desktop_xsm) {
             background-color: inherit;

@@ -47,7 +47,9 @@
   background-color: #4c4d5e;
   box-sizing: border-box;
   height: 0;
-  min-width: 40vw;
+  width: 40vw;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
   overflow-y: hidden;
   padding: 0;
   position: absolute;
@@ -56,7 +58,6 @@
   transition: height 0.3s, visibility 0.3s;
   top: 64px;
   visibility: hidden;
-  width: 0;
 }
 @media screen and (min-width: 980px) {
   .header__menu {

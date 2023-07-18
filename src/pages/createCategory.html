@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="../styles/tema.css" />
     <link rel="stylesheet" href="../styles/header/header.css" />
     <link rel="stylesheet" href="../styles/footer/footer.css" />
-    <link rel="stylesheet" href="../styles/home/home.css" />
 </head>
 <body>
     <header class="header">
@@ -37,15 +36,15 @@
         </div>
     </header>
     <main class="main">
-        <div class="main__container container">
-            <form>
-                <label>Nome da Categoria:
-                    <input class="inputText" type="text" placeholder="nome da categoria..." required/>
+        <div class="container">
+            <form class="defaultForm">
+                <label class="defaultLabel">Nome da Categoria
+                    <input class="inputText" type="text" placeholder="Nome da categoria..." required/>
                 </label>
-                <label>Cor:
-                    <input type="color" value="#FFFFFF"/>
+                <label class="defaultLabel">Identidade Visual
+                    <input type="color" value="#000000"/>
                 </label>
-                <button class="primaryButton--sm" type="submit">Cadastrar</button>
+                <button class="primaryButton--lg" type="submit">Cadastrar</button>
             </form>
 
         </div>

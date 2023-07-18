@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="../styles/tema.css" />
     <link rel="stylesheet" href="../styles/header/header.css" />
     <link rel="stylesheet" href="../styles/footer/footer.css" />
-    <link rel="stylesheet" href="../styles/home/home.css" />
 </head>
 <body>
     <header class="header">
@@ -37,11 +36,25 @@
         </div>
     </header>
     <main class="main">
-        <div class="main__container container">
-            <form>
-                <label>Nome da Categoria:
-                    <input type="text"/>
+        <div class="container">
+            <form class="defaultForm">
+                <label class="defaultLabel">Título
+                    <input class="inputText" type="text" placeholder="Título da notícia..." required/>
                 </label>
+                <label class="defaultLabel">Categoria
+                    <select class="inputText" required>
+                        <option value="ex01">Exemplo 01</option>
+                        <option value="ex02">Exemplo 02</option>
+                        <option value="ex03">Exemplo 03</option>
+                    </select>
+                </label>
+                <label class="defaultLabel">Conteúdo
+                    <textarea class="inputText" rows="20" cols="20" required></textarea>
+                </label>
+                <label class="defaultLabel">Imagem
+                    <input class="inputText" accept="image/jpeg,image/png" type="file"/>
+                </label>
+                <button class="primaryButton--lg" type="submit">Cadastrar</button>
             </form>
         </div>
     </main>
