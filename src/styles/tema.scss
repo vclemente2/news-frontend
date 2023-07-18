@@ -98,9 +98,9 @@ main {
 }
 
 .defaultLabel {
+  flex-direction: column;
   font-size: 1.25rem;
   font-weight: 500;
   line-height: 2;
   display: flex;
-  flex-direction: column;
 }
