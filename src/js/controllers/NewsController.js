@@ -9,6 +9,8 @@ export class NewsController {
   #lastPage;
   #newsModel;
   #newsView;
+  #openModalButton;
+  #closeModalButton;
 
   constructor() {
     this.#newsContainerElement = document.querySelector("[data-newsList]");
@@ -25,22 +27,28 @@ export class NewsController {
 
         this.#newsContainerElement.innerHTML = this.#newsView.showCards();
 
-        const modalLink = document.querySelectorAll("[data-modalLink]");
+        this.#openModalButton = document.querySelectorAll("[data-modalLink]");
 
-        modalLink.forEach((link) => {
+        this.#openModalButton.forEach((link) => {
           link.addEventListener("click", (event) => {
             const newsId = event.currentTarget.id;
             this.#newsView.showModal(newsId);
+            this.#closeModalButton = document.querySelector(
+              "[data-closeModalButton]"
+            );
+            this.#closeModalButton.addEventListener("click", () => {
+              this.#newsView.closeModal();
+            });
           });
         });
       });
   }
 
-  get data() {
-    return {
-      news: this.#arrNews,
-      page: this.#page,
-      lastPage: this.#lastPage
-    };
-  }
+  //   get data() {
+  //     return {
+  //       news: this.#arrNews,
+  //       page: this.#page,
+  //       lastPage: this.#lastPage
+  //     };
+  //   }
 }

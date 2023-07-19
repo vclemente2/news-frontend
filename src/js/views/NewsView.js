@@ -18,6 +18,10 @@ export class NewsView {
     this.#modalElement.innerHTML = this.#generateModal(id);
   }
 
+  closeModal() {
+    this.#modalElement.style.display = "none";
+  }
+
   #dateFormatter(date) {
     const dateObj = new Date(date);
 
@@ -74,10 +78,15 @@ export class NewsView {
                 <span class="main__list__category">${news.category.name}</span>
                 <p class="main__list__description">${news.description}
                 </p>
-                <time class="main__list__date" datetime="${
-                  news.createdAt
-                }">${this.#dateFormatter(news.createdAt)}</time>
-                <button class="main__list__link secondaryButton" >Voltar</button>
+                <div class="main__list__author">
+                    <span class="main__list__author__name">${
+                      news.author ? `Escrito por: ${news.author}` : ""
+                    }</span>
+                    <time class="main__list__date" datetime="${
+                      news.createdAt
+                    }">${this.#dateFormatter(news.createdAt)}</time>
+                </div>
+                <button class="main__list__link secondaryButton" data-closeModalButton>Voltar</button>
             </article>
         </div>
         `;

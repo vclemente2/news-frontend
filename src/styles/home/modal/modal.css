@@ -25,4 +25,15 @@
     height: auto;
     width: auto;
   }
+}
+.main__list__author {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.main__list__author__name {
+  font-size: 0.75rem;
+  margin-bottom: 1rem;
+  text-align: start;
+  width: 100%;
 }/*# sourceMappingURL=modal.css.map */
