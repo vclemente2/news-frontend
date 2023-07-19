@@ -1,0 +1,34 @@
+@import "../../variables";
+@import "../../breakpoints";
+@import "../../mixin";
+
+.main {
+    &__modal {
+        background-color: rgba(0, 0, 0, 0.8);
+        display: none;
+        height: 100%;
+        left: 0;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 9999;
+
+        &__container {
+            @include shadow();
+            background-color: $light-grey;
+            border-radius: 5px;
+            height: 80%;
+            left: 50%;
+            overflow-y: auto;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            width: 80%;
+
+            @media screen and (min-width: $desktop_xsm) {
+                height: auto;
+                width: auto;
+            }
+        }
+    }
+}

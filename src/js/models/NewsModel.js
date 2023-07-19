@@ -17,16 +17,7 @@ export class NewsModel {
     return new NewsModel(newsTitle, newsDescription, category, newsImage);
   }
 
-  get data() {
-    return {
-      title: this.#title,
-      description: this.#description,
-      image: this.#image,
-      category: this.#category
-    };
-  }
-
-  async findAll() {
+  static async findAll() {
     try {
       return await http.get("/news");
     } catch (error) {
@@ -34,12 +25,21 @@ export class NewsModel {
     }
   }
 
-  async findOne(id) {
+  static async findOne(id) {
     try {
       return await http.get("/news", { params: id });
     } catch (error) {
       console.log(error);
     }
+  }
+
+  get data() {
+    return {
+      title: this.#title,
+      description: this.#description,
+      image: this.#image,
+      category: this.#category
+    };
   }
 
   async save() {
