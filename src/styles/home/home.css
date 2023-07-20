@@ -48,9 +48,11 @@
   }
 }
 .main__list__article {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  height: 100%;
+  justify-content: space-between;
 }
 .main__list__title {
   padding-bottom: 1rem;

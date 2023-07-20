@@ -39,20 +39,21 @@
         <div class="container">
             <form class="defaultForm" data-newsForm>
                 <label class="defaultLabel">Título
-                    <input class="inputText" type="text" placeholder="Título da notícia..." required/>
+                    <input class="inputText" type="text" placeholder="Título da notícia..." data-newsInput="title" required/>
                 </label>
                 <label class="defaultLabel">Categoria
-                    <select class="inputText" required>
-                        <option value="ex01">Exemplo 01</option>
-                        <option value="ex02">Exemplo 02</option>
-                        <option value="ex03">Exemplo 03</option>
+                    <select class="inputText" data-newsInput="category" required>
+                        <option value=""></option>
                     </select>
                 </label>
+                <label class="defaultLabel">Autor
+                    <input class="inputText" type="text" placeholder="Autor da notícia..." data-newsInput="author"/>
+                </label>
                 <label class="defaultLabel">Conteúdo
-                    <textarea class="inputText" rows="20" cols="20" required></textarea>
+                    <textarea class="inputText" rows="20" cols="20" data-newsInput="description" required></textarea>
                 </label>
                 <label class="defaultLabel">Imagem
-                    <input class="inputText" accept="image/jpeg,image/png" type="file"/>
+                    <input class="inputText" accept="image/jpeg,image/png" type="file" data-newsInput="image"/>
                 </label>
                 <button class="primaryButton--lg" type="submit">Cadastrar</button>
             </form>

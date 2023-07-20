@@ -13,15 +13,7 @@ export class CategoryModel {
     return new CategoryModel(categoryName, categoryColor);
   }
 
-  get name() {
-    return this.#name;
-  }
-
-  get color() {
-    return this.#color;
-  }
-
-  async findAll() {
+  static async findAll() {
     try {
       return await http.get("/category");
     } catch (error) {
@@ -29,12 +21,20 @@ export class CategoryModel {
     }
   }
 
-  async findOne(id) {
+  static async findOne(id) {
     try {
       return await http.get("/category", { params: id });
     } catch (error) {
       console.log(error);
     }
+  }
+
+  get name() {
+    return this.#name;
+  }
+
+  get color() {
+    return this.#color;
   }
 
   async save() {

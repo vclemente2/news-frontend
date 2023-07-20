@@ -1,3 +1,4 @@
-import { MenuController } from "../controllers/index.js";
+import { CreateNewsController, MenuController } from "../controllers/index.js";
 
 new MenuController();
+new CreateNewsController();
