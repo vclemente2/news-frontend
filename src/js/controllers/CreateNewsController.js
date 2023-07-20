@@ -9,7 +9,7 @@ export class CreateNewsController {
   #createNewsView;
   #categories;
   title;
-  category;
+  category_id;
   author;
   description;
   image;
@@ -33,17 +33,22 @@ export class CreateNewsController {
       });
     });
 
-    this.#formElement.addEventListener("submit", (event) => {
+    this.#formElement.addEventListener("submit", async (event) => {
       event.preventDefault();
       this.#newsModel = NewsModel.create(this.data);
-      console.log(this.#newsModel);
+
+      const response = await this.#newsModel.save();
+
+      response.status === 201
+        ? alert("Notícia cadastrada com sucesso")
+        : alert("Oops! Tivemos um erro.");
     });
   }
 
   get data() {
     return {
       title: this.title,
-      category: this.category,
+      category_id: Number(this.category_id),
       author: this.author,
       description: this.description,
       image: this.image

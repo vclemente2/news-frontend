@@ -5,7 +5,7 @@ export class CreateNewsView {
   constructor(categories) {
     this.#categories = categories;
     this.#categoryInputElement = document.querySelector(
-      '[data-newsInput="category"]'
+      '[data-newsInput="category_id"]'
     );
   }
 
@@ -18,13 +18,13 @@ export class CreateNewsView {
 
   #generateCategoryList() {
     return this.#categories.reduce((acc, cur) => {
-      return (acc += this.#template(cur.name));
+      return (acc += this.#template(cur));
     }, "");
   }
 
   #template(category) {
     return `
-      <option value=${category}>${category}</option>
+      <option value=${category.id}>${category.name}</option>
     `;
   }
 }

@@ -2,21 +2,21 @@ import { http } from "../config/http";
 
 export class NewsModel {
   #title;
-  #category;
+  #category_id;
   #author;
   #description;
   #image;
 
-  constructor(title, category, author, description, image) {
+  constructor(title, category_id, author, description, image) {
     this.#title = title;
-    this.#category = category;
+    this.#category_id = category_id;
     this.#author = author;
     this.#description = description;
     this.#image = image;
   }
 
-  static create({ title, category, author = null, description, image = null }) {
-    return new NewsModel(title, category, author, description, image);
+  static create({ title, category_id, author = "", description, image = "" }) {
+    return new NewsModel(title, category_id, author, description, image);
   }
 
   static async findAll() {
@@ -38,7 +38,7 @@ export class NewsModel {
   get data() {
     return {
       title: this.#title,
-      category: this.#category,
+      category_id: this.#category_id,
       author: this.#author,
       description: this.#description,
       image: this.#image

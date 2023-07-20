@@ -70,7 +70,7 @@ export class NewsView {
   #templateModal(news) {
     return `
         <div class="main__modal__container container">
-            <article class="main__list__article">
+            <article class="main__modal__article">
                 <h2 class="main__list__title">${news.title}</h2>
                 <img class="main__list__image" src=${
                   news.image || `"./src/assets/images/no_image.png"`

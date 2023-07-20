@@ -12,7 +12,8 @@
   box-shadow: 2px 2px 10px rgba(36, 37, 54, 0.3);
   background-color: #f6f6f6;
   border-radius: 5px;
-  height: 80%;
+  max-height: 90%;
+  min-height: 80%;
   left: 50%;
   overflow-y: auto;
   position: absolute;
@@ -25,6 +26,14 @@
     height: auto;
     width: auto;
   }
+}
+.main__modal__article {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: -moz-fit-content;
+  height: fit-content;
+  justify-content: space-between;
 }
 .main__list__author {
   display: flex;
