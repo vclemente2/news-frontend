@@ -3,16 +3,18 @@ import { NewsView } from "../views/NewsView.js";
 
 export class NewsController {
   #arrNews;
-  #page;
-  #lastPage;
+  // #page;
+  // #lastPage;
   #newsView;
 
   constructor() {
-    NewsModel.paginate()
+    NewsModel.findAll()
       .then((response) => {
-        this.#arrNews = response.data.news;
-        this.#page = response.data.page;
-        this.#lastPage = response.data.lastPage;
+        console.log(response);
+        this.#arrNews = response.data;
+        console.log(this.#arrNews);
+        // this.#page = response.data.page;
+        // this.#lastPage = response.data.lastPage;
       })
       .then(() => {
         this.#newsView = new NewsView(this.#arrNews);
