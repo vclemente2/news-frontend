@@ -12,9 +12,10 @@ export class NewsView {
   }
 
   showCards() {
-    this.#cardsElement.innerHTML = this.#arrNews.reduce((acc, cur) => {
-      return (acc += this.#templateCard(cur));
-    }, "");
+    this.#cardsElement.innerHTML =
+      this.#arrNews.reduce((acc, cur) => {
+        return (acc += this.#templateCard(cur));
+      }, "") || "<h1>Nenhum resultado encontrado...</h1>";
     this.#addButtonEvent();
   }
 
