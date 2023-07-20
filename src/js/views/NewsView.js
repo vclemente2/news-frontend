@@ -1,25 +1,46 @@
 export class NewsView {
   #arrNews;
   #modalElement;
+  #cardsElement;
+  #openModalButton;
+  #closeModalButton;
 
-  constructor(arrNews, modalElement) {
+  constructor(arrNews) {
     this.#arrNews = arrNews;
-    this.#modalElement = modalElement;
+    this.#modalElement = document.querySelector("[data-modalContainer]");
+    this.#cardsElement = document.querySelector("[data-newsList]");
   }
 
   showCards() {
-    return this.#arrNews.reduce((acc, cur) => {
+    this.#cardsElement.innerHTML = this.#arrNews.reduce((acc, cur) => {
       return (acc += this.#templateCard(cur));
     }, "");
+    this.#addButtonEvent();
   }
 
-  showModal(id) {
+  #showModal(id) {
     this.#modalElement.style.display = "block";
     this.#modalElement.innerHTML = this.#generateModal(id);
   }
 
-  closeModal() {
+  #closeModal() {
     this.#modalElement.style.display = "none";
+  }
+
+  #addButtonEvent() {
+    this.#openModalButton = document.querySelectorAll("[data-modalLink]");
+    this.#openModalButton.forEach((link) => {
+      link.addEventListener("click", (event) => {
+        const newsId = event.currentTarget.id;
+        this.#showModal(newsId);
+        this.#closeModalButton = document.querySelector(
+          "[data-closeModalButton]"
+        );
+        this.#closeModalButton.addEventListener("click", () => {
+          this.#closeModal();
+        });
+      });
+    });
   }
 
   #dateFormatter(date) {
@@ -51,7 +72,9 @@ export class NewsView {
                 <img class="main__list__image" src=${
                   news.image || `"./src/assets/images/no_image.png"`
                 } alt="${`Imagem da notícia ${news.title}`}"/>
-                <span class="main__list__category">${news.category.name}</span>
+                <span class="main__list__category" style="background-color: ${
+                  news.category.color
+                }">${news.category.name}</span>
                 <p class="main__list__description">${
                   news.description.length > 100
                     ? news.description.slice(0, 100) + "..."
@@ -75,7 +98,9 @@ export class NewsView {
                 <img class="main__list__image" src=${
                   news.image || `"./src/assets/images/no_image.png"`
                 } alt="${`Imagem da notícia ${news.title}`}"/>
-                <span class="main__list__category">${news.category.name}</span>
+                <span class="main__list__category" style="background-color: ${
+                  news.category.color
+                }">${news.category.name}</span>
                 <p class="main__list__description">${news.description}
                 </p>
                 <div class="main__list__author">

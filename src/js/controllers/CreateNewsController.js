@@ -41,7 +41,7 @@ export class CreateNewsController {
 
       response.status === 201
         ? alert("Notícia cadastrada com sucesso")
-        : alert("Oops! Tivemos um erro.");
+        : alert("Oops! Tivemos um erro");
     });
   }
 

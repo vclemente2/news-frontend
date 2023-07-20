@@ -1,4 +1,6 @@
+import { NewsModel } from "../models/NewsModel.js";
 import { SearchModel } from "../models/SearchModel.js";
+import { NewsView } from "../views/NewsView.js";
 import { SearchView } from "../views/SearchView.js";
 
 export class SearchController {
@@ -6,6 +8,7 @@ export class SearchController {
   #searchModel;
   #searchButton;
   #searchView;
+  #newsView;
 
   constructor() {
     this.#searchInput = document.querySelector("[data-search]");
@@ -23,19 +26,18 @@ export class SearchController {
         !this.#searchModel.searchValue ? this.#searchView.showButton() : "";
       }
     });
-    this.#searchInput.addEventListener("change", (event) => {
+    this.#searchInput.addEventListener("change", async (event) => {
       this.#searchModel.update(event.target.value);
 
-      // Acrescentar método do NewsModel que filtra as noticias;
-      this.printInput();
+      const news = await NewsModel.filter(this.#searchModel.searchValue);
+
+      this.#newsView = new NewsView(news);
+      this.#newsView.showCards();
     });
+
     if (window.innerWidth < 980)
       this.#searchButton.addEventListener("click", (event) => {
         this.#searchView.toggleInputVisibility(event.type);
       });
-  }
-
-  printInput() {
-    console.log(this.#searchModel.searchValue);
   }
 }

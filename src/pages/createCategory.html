@@ -37,12 +37,12 @@
     </header>
     <main class="main">
         <div class="container">
-            <form class="defaultForm">
+            <form class="defaultForm" data-categoryForm>
                 <label class="defaultLabel">Nome da Categoria
-                    <input class="inputText" type="text" placeholder="Nome da categoria..." required/>
+                    <input class="inputText" type="text" placeholder="Nome da categoria..." data-categoryInput="name" required/>
                 </label>
                 <label class="defaultLabel">Identidade Visual
-                    <input type="color" value="#000000"/>
+                    <input type="color" value="#555555" data-categoryInput="color"/>
                 </label>
                 <button class="primaryButton--lg" type="submit">Cadastrar</button>
             </form>

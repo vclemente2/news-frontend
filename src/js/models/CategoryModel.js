@@ -9,8 +9,8 @@ export class CategoryModel {
     this.#color = color;
   }
 
-  static create(categoryName, categoryColor) {
-    return new CategoryModel(categoryName, categoryColor);
+  static create({ name, color = "#555555" }) {
+    return new CategoryModel(name, color);
   }
 
   static async findAll() {

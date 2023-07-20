@@ -19,7 +19,7 @@ export class NewsModel {
     return new NewsModel(title, category_id, author, description, image);
   }
 
-  static async findAll() {
+  static async paginate() {
     try {
       return await http.get("/news");
     } catch (error) {
@@ -35,6 +35,20 @@ export class NewsModel {
     }
   }
 
+  static async filter(text) {
+    const response = await NewsModel.findAll();
+
+    const filteredNews = response.data.filter((news) => {
+      return (
+        news.title.toLowerCase().includes(text.toLowerCase()) ||
+        news.category.name.toLowerCase().includes(text.toLowerCase()) ||
+        news.description.toLowerCase().includes(text.toLowerCase())
+      );
+    });
+
+    return filteredNews;
+  }
+
   get data() {
     return {
       title: this.#title,
@@ -48,6 +62,14 @@ export class NewsModel {
   async save() {
     try {
       return await http.post("/news", { ...this.data });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  static async findAll() {
+    try {
+      return await http.get("/news/all");
     } catch (error) {
       console.log(error);
     }
