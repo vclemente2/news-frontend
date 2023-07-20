@@ -1,5 +1,5 @@
-import { NewsModel } from "../models/NewsModel";
-import { NewsView } from "../views/NewsView";
+import { NewsModel } from "../models/NewsModel.js";
+import { NewsView } from "../views/NewsView.js";
 
 export class NewsController {
   #arrNews;

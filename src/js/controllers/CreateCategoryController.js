@@ -1,4 +1,4 @@
-import { CategoryModel } from "../models/CategoryModel";
+import { CategoryModel } from "../models/CategoryModel.js";
 
 export class CreateCategoryController {
   #formElement;

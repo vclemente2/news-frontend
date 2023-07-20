@@ -1,6 +1,6 @@
-import { CategoryModel } from "../models/CategoryModel";
-import { NewsModel } from "../models/NewsModel";
-import { CreateNewsView } from "../views/CreateNewsView";
+import { CategoryModel } from "../models/CategoryModel.js";
+import { NewsModel } from "../models/NewsModel.js";
+import { CreateNewsView } from "../views/CreateNewsView.js";
 
 export class CreateNewsController {
   #formElement;

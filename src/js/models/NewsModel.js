@@ -1,4 +1,4 @@
-import { http } from "../config/http";
+import { http } from "../config/http.js";
 
 export class NewsModel {
   #title;
