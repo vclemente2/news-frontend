@@ -1,15 +1,18 @@
 import { CategoryModel } from "../models/CategoryModel.js";
+import { CreateCategoryView } from "../views/CreateCategoryView .js";
 
 export class CreateCategoryController {
   #formElement;
   #inputElements;
   #categoryModel;
+  #createCategoryView;
   name;
   color;
 
   constructor() {
     this.#formElement = document.querySelector("[data-categoryForm]");
     this.#inputElements = document.querySelectorAll("[data-categoryInput]");
+    this.#createCategoryView = new CreateCategoryView();
 
     this.#inputElements.forEach((element) => {
       element.addEventListener("change", (event) => {
@@ -23,11 +26,12 @@ export class CreateCategoryController {
       event.preventDefault();
       this.#categoryModel = CategoryModel.create(this.data);
 
-      const response = await this.#categoryModel.save();
-
-      response.status === 201
-        ? alert("Categoria cadastrada com sucesso")
-        : alert("Oops! Tivemos um erro");
+      try {
+        const response = await this.#categoryModel.save();
+        this.#createCategoryView.showModal(response.status);
+      } catch (error) {
+        this.#createCategoryView.showModal(error.response.status);
+      }
     });
   }
 

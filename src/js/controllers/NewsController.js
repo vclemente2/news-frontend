@@ -10,9 +10,7 @@ export class NewsController {
   constructor() {
     NewsModel.findAll()
       .then((response) => {
-        console.log(response);
         this.#arrNews = response.data;
-        console.log(this.#arrNews);
         // this.#page = response.data.page;
         // this.#lastPage = response.data.lastPage;
       })

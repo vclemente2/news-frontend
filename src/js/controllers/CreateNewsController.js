@@ -37,11 +37,12 @@ export class CreateNewsController {
       event.preventDefault();
       this.#newsModel = NewsModel.create(this.data);
 
-      const response = await this.#newsModel.save();
-
-      response.status === 201
-        ? alert("Notícia cadastrada com sucesso")
-        : alert("Oops! Tivemos um erro");
+      try {
+        const response = await this.#newsModel.save();
+        this.#createNewsView.showModal(response.status);
+      } catch (error) {
+        this.#createNewsView.showModal(error.response.status);
+      }
     });
   }
 

@@ -14,19 +14,11 @@ export class CategoryModel {
   }
 
   static async findAll() {
-    try {
-      return await http.get("/category");
-    } catch (error) {
-      console.log(error);
-    }
+    return await http.get("/category");
   }
 
   static async findOne(id) {
-    try {
-      return await http.get("/category", { params: id });
-    } catch (error) {
-      console.log(error);
-    }
+    return await http.get("/category", { params: id });
   }
 
   get name() {
@@ -38,13 +30,9 @@ export class CategoryModel {
   }
 
   async save() {
-    try {
-      return await http.post("/category", {
-        name: this.name,
-        color: this.color
-      });
-    } catch (error) {
-      console.log(error);
-    }
+    return await http.post("/category", {
+      name: this.name,
+      color: this.color
+    });
   }
 }

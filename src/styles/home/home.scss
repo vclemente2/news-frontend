@@ -63,6 +63,7 @@
             padding-bottom: 1rem;
             text-align: center;
             text-transform: uppercase;
+            word-break: break-word;
         }
 
         &__category {
@@ -84,6 +85,7 @@
         &__description {
             line-height: 1.5;
             text-align: justify;
+            word-break: break-word;
         }
 
         &__date {

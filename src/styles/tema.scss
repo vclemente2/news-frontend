@@ -62,7 +62,7 @@ main {
   color: $light-grey;
   cursor: pointer;
   padding: 1rem 2rem;
-  transition: all 0.2s;
+  transition: all 0s;
   text-align: center;
   text-transform: uppercase;
   width: fit-content;
@@ -103,4 +103,59 @@ main {
   font-weight: 500;
   line-height: 2;
   display: flex;
+}
+
+.modal {
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+
+  &__closeIcon {
+    padding: 0.5rem;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  &__container {
+    @include shadow();
+    background-color: $light-grey;
+    border-radius: 5px;
+    max-height: 90%;
+    min-height: 80%;
+    left: 50%;
+    overflow-y: auto;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    width: 80%;
+
+    @media screen and (min-width: $desktop_xsm) {
+      height: auto;
+      width: auto;
+    }
+
+    &--sm {
+      @extend .modal__container;
+      align-items: center;
+      display: flex;
+      height: fit-content;
+      justify-content: center;
+      max-height: auto;
+      min-height: auto;
+      padding: 3rem 1rem;
+      text-align: center;
+      width: 80%;
+
+      @media screen and (min-width: $desktop_xsm) {
+        max-width: 500px;
+        padding: 5rem;
+      }
+    }
+  }
 }
