@@ -52,10 +52,11 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  justify-content: space-between;
 }
 .main__list__title {
-  padding-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
   text-align: center;
   text-transform: uppercase;
   word-break: break-word;
@@ -68,6 +69,7 @@
   display: flex;
   font-size: 0.75rem;
   margin-top: 0.5rem;
+  margin-bottom: 1rem;
   padding: 0.25rem;
 }
 .main__list__image {
@@ -75,6 +77,7 @@
   width: 100%;
 }
 .main__list__description {
+  flex-grow: 1;
   line-height: 1.5;
   text-align: justify;
   word-break: break-word;

@@ -65,17 +65,22 @@ export class NewsView {
     return `
         <li class="main__list__item" id=${news.id} data-modalLink>
             <article class="main__list__article">
+
+                <img class="main__list__image" src=${
+                  news.image || `"./src/assets/images/no_image.png"`
+                } alt="${`Imagem da notícia ${news.title}`}"/>
+
+                <span class="main__list__category" style="background-color: ${
+                  news.category.color
+                }">${news.category.name}</span>
+
                 <h2 class="main__list__title">${
                   news.title.length > 50
                     ? news.title.slice(0, 50) + "..."
                     : news.title
                 }</h2>
-                <img class="main__list__image" src=${
-                  news.image || `"./src/assets/images/no_image.png"`
-                } alt="${`Imagem da notícia ${news.title}`}"/>
-                <span class="main__list__category" style="background-color: ${
-                  news.category.color
-                }">${news.category.name}</span>
+
+
                 <p class="main__list__description">${
                   news.description.length > 100
                     ? news.description.slice(0, 100) + "..."
@@ -85,7 +90,7 @@ export class NewsView {
                 <time class="main__list__date" datetime="${
                   news.createdAt
                 }">${this.#dateFormatter(news.createdAt)}</time>
-                <button class="main__list__link secondaryButton">Ver Mais</button>
+                <button type="button" class="main__list__link secondaryButton">Ver Mais</button>
             </article>
         </li>
         `;
@@ -95,13 +100,13 @@ export class NewsView {
     return `
         <div class="modal__container container">
             <article class="main__modal__article">
-                <h2 class="main__list__title">${news.title}</h2>
                 <img class="main__list__image" src=${
                   news.image || `"./src/assets/images/no_image.png"`
                 } alt="${`Imagem da notícia ${news.title}`}"/>
                 <span class="main__list__category" style="background-color: ${
                   news.category.color
                 }">${news.category.name}</span>
+                <h2 class="main__list__title">${news.title}</h2>
                 <p class="main__list__description">${news.description}
                 </p>
                 <div class="main__list__author">

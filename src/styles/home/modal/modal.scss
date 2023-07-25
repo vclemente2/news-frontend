@@ -9,6 +9,10 @@
         flex-direction: column;
         height: fit-content;
         justify-content: space-between;
+
+        @media screen and (min-width: $mobile-md) {
+            padding: 1rem 0;
+        }
     }
 
     &__list__author {

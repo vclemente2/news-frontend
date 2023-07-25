@@ -120,6 +120,7 @@ main {
   z-index: 9999;
 
   &__closeIcon {
+    cursor: pointer;
     padding: 0.5rem;
     position: absolute;
     right: 0;

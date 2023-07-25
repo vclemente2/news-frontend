@@ -6,6 +6,11 @@
   height: fit-content;
   justify-content: space-between;
 }
+@media screen and (min-width: 768px) {
+  .main__modal__article {
+    padding: 1rem 0;
+  }
+}
 .main__list__author {
   display: flex;
   justify-content: space-between;
