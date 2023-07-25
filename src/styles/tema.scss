@@ -78,6 +78,10 @@ main {
   &:active {
     background-color: $blue;
   }
+
+  &:hover {
+    opacity: 0.95;
+  }
 }
 
 .secondaryButton {

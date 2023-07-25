@@ -70,6 +70,9 @@ main {
 .primaryButton:active, .secondaryButton:active, .primaryButton--lg:active {
   background-color: #282b57;
 }
+.primaryButton:hover, .secondaryButton:hover, .primaryButton--lg:hover {
+  opacity: 0.95;
+}
 
 .secondaryButton {
   background-color: #282b57;
