@@ -9,13 +9,41 @@
     &__list {
         display: flex;
         flex-direction: column;
-        gap: 2rem;
+        row-gap: 2rem;
         width: 100%;
 
         @media screen and (min-width: $mobile-md) {
             flex-direction: row;
             flex-wrap: wrap;
-            justify-content: center;
+            justify-content: flex-start;
+
+            & > &__item {
+                margin-right: 5%;
+            }
+
+            & > &__item:nth-child(2n) {
+                margin-right: 0;
+            }
+        }
+
+        @media screen and (min-width: $desktop_xsm) {
+            & > &__item:nth-child(n) {
+                margin-right: 2.5%;
+            }
+
+            & > &__item:nth-child(3n) {
+                margin-right: 0;
+            }
+        }
+
+        @media screen and (min-width: $desktop_lg) {
+            & > &__item:nth-child(n) {
+                margin-right: 1.666666667%;
+            }
+
+            & > &__item:nth-child(4n) {
+                margin-right: 0;
+            }
         }
 
         &__item {
@@ -23,6 +51,7 @@
             background-color: $light-grey;
             border: 2px solid transparent;
             border-radius: 10px;
+            box-sizing: border-box;
             cursor: pointer;
             min-height: fit-content;
             padding: 1rem;
@@ -37,11 +66,11 @@
             }
 
             @media screen and (min-width: $mobile-md) {
-                width: 40%;
+                width: 47.5%;
             }
 
             @media screen and (min-width: $desktop_xsm) {
-                width: 25%;
+                width: 31.666666667%;
 
                 &:hover {
                     border: 2px solid $orange;
@@ -50,7 +79,7 @@
 
             @media screen and (min-width: $desktop_lg) {
                 max-height: calc(100vh - 64px);
-                width: 20%;
+                width: 23.75%;
             }
         }
 
