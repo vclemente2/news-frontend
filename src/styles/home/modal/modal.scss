@@ -3,15 +3,26 @@
 @import "../../mixin";
 
 .main {
-    &__modal__article {
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-        height: fit-content;
-        justify-content: space-between;
+    &__modal {
+        &__article {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            height: fit-content;
+            justify-content: space-between;
+            width: 100%;
 
-        @media screen and (min-width: $mobile-md) {
-            padding: 1rem 0;
+            @media screen and (min-width: $mobile-md) {
+                padding: 1rem 0;
+            }
+        }
+
+        &__image {
+            object-fit: cover;
+            object-position: center;
+            border-radius: 5px;
+            height: 50vh;
+            width: 100%;
         }
     }
 

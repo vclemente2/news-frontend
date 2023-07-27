@@ -5,11 +5,21 @@
   height: -moz-fit-content;
   height: fit-content;
   justify-content: space-between;
+  width: 100%;
 }
 @media screen and (min-width: 768px) {
   .main__modal__article {
     padding: 1rem 0;
   }
+}
+.main__modal__image {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  border-radius: 5px;
+  height: 50vh;
+  width: 100%;
 }
 .main__list__author {
   display: flex;

@@ -67,11 +67,9 @@ export class NewsView {
 
             <article class="main__list__article">
                 
-               
                   <img class="main__list__image" src=${
                     news.image || `"./src/assets/images/no_image.png"`
                   } alt="${`Imagem da notícia ${news.title}`}"/>
-    
 
                 <span class="main__list__category" style="background-color: ${
                   news.category.color
@@ -108,7 +106,7 @@ export class NewsView {
 
             <article class="main__modal__article">
 
-                <img class="main__list__image" src=${
+                <img class="main__modal__image" src=${
                   news.image || `"./src/assets/images/no_image.png"`
                 } alt="${`Imagem da notícia ${news.title}`}"/>
 

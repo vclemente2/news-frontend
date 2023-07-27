@@ -130,7 +130,7 @@ main {
 @media screen and (min-width: 980px) {
   .modal__container, .modal__container--sm {
     height: auto;
-    width: auto;
+    width: 50vw;
   }
 }
 .modal__container--sm {
