@@ -21,7 +21,10 @@
   border: 2px solid transparent;
   border-radius: 10px;
   cursor: pointer;
+  min-height: -moz-fit-content;
+  min-height: fit-content;
   padding: 1rem;
+  width: auto;
 }
 .main__list__item:active {
   border-color: #d25216;
@@ -31,12 +34,12 @@
 }
 @media screen and (min-width: 768px) {
   .main__list__item {
-    max-width: 40%;
+    width: 40%;
   }
 }
 @media screen and (min-width: 980px) {
   .main__list__item {
-    max-width: 25%;
+    width: 25%;
   }
   .main__list__item:hover {
     border: 2px solid #d25216;
@@ -44,7 +47,8 @@
 }
 @media screen and (min-width: 1440px) {
   .main__list__item {
-    max-width: 20%;
+    max-height: calc(100vh - 64px);
+    width: 20%;
   }
 }
 .main__list__article {
@@ -54,8 +58,8 @@
   height: 100%;
 }
 .main__list__title {
-  display: flex;
   align-items: center;
+  display: flex;
   flex-grow: 1;
   text-align: center;
   text-transform: uppercase;
@@ -73,7 +77,12 @@
   padding: 0.25rem;
 }
 .main__list__image {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
   border-radius: 5px;
+  height: 30vh;
   width: 100%;
 }
 .main__list__description {

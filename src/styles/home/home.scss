@@ -24,7 +24,9 @@
             border: 2px solid transparent;
             border-radius: 10px;
             cursor: pointer;
+            min-height: fit-content;
             padding: 1rem;
+            width: auto;
 
             &:active {
                 border-color: $orange;
@@ -35,11 +37,11 @@
             }
 
             @media screen and (min-width: $mobile-md) {
-                max-width: 40%;
+                width: 40%;
             }
 
             @media screen and (min-width: $desktop_xsm) {
-                max-width: 25%;
+                width: 25%;
 
                 &:hover {
                     border: 2px solid $orange;
@@ -47,7 +49,8 @@
             }
 
             @media screen and (min-width: $desktop_lg) {
-                max-width: 20%;
+                max-height: calc(100vh - 64px);
+                width: 20%;
             }
         }
 
@@ -56,15 +59,12 @@
             display: flex;
             flex-direction: column;
             height: 100%;
-            // justify-content: space-between;
         }
 
         &__title {
-            display: flex;
             align-items: center;
-            // height: max-content;
+            display: flex;
             flex-grow: 1;
-            // padding-bottom: 1rem;
             text-align: center;
             text-transform: uppercase;
             word-break: break-word;
@@ -83,7 +83,10 @@
         }
 
         &__image {
+            object-fit: cover;
+            object-position: center;
             border-radius: 5px;
+            height: 30vh;
             width: 100%;
         }
 

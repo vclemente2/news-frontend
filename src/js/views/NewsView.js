@@ -64,11 +64,14 @@ export class NewsView {
   #templateCard(news) {
     return `
         <li class="main__list__item" id=${news.id} data-modalLink>
-            <article class="main__list__article">
 
-                <img class="main__list__image" src=${
-                  news.image || `"./src/assets/images/no_image.png"`
-                } alt="${`Imagem da notícia ${news.title}`}"/>
+            <article class="main__list__article">
+                
+               
+                  <img class="main__list__image" src=${
+                    news.image || `"./src/assets/images/no_image.png"`
+                  } alt="${`Imagem da notícia ${news.title}`}"/>
+    
 
                 <span class="main__list__category" style="background-color: ${
                   news.category.color
@@ -87,10 +90,13 @@ export class NewsView {
                     : news.description
                 }
                 </p>
+
                 <time class="main__list__date" datetime="${
                   news.createdAt
                 }">${this.#dateFormatter(news.createdAt)}</time>
+
                 <button type="button" class="main__list__link secondaryButton">Ver Mais</button>
+
             </article>
         </li>
         `;
@@ -99,25 +105,34 @@ export class NewsView {
   #templateModal(news) {
     return `
         <div class="modal__container container">
+
             <article class="main__modal__article">
+
                 <img class="main__list__image" src=${
                   news.image || `"./src/assets/images/no_image.png"`
                 } alt="${`Imagem da notícia ${news.title}`}"/>
+
                 <span class="main__list__category" style="background-color: ${
                   news.category.color
                 }">${news.category.name}</span>
+
                 <h2 class="main__list__title">${news.title}</h2>
+
                 <p class="main__list__description">${news.description}
                 </p>
+
                 <div class="main__list__author">
                     <span class="main__list__author__name">${
                       news.author ? `Escrito por: ${news.author}` : ""
                     }</span>
+
                     <time class="main__list__date" datetime="${
                       news.createdAt
                     }">${this.#dateFormatter(news.createdAt)}</time>
                 </div>
+
                 <button class="main__list__link secondaryButton" data-closeModalButton>Voltar</button>
+                
             </article>
         </div>
         `;

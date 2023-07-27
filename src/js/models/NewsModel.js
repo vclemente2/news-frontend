@@ -5,18 +5,24 @@ export class NewsModel {
   #category_id;
   #author;
   #description;
-  #image;
+  #imageInput;
 
-  constructor(title, category_id, author, description, image) {
+  constructor(title, category_id, author, description, imageInput) {
     this.#title = title;
     this.#category_id = category_id;
     this.#author = author;
     this.#description = description;
-    this.#image = image;
+    this.#imageInput = imageInput;
   }
 
-  static create({ title, category_id, author = "", description, image = "" }) {
-    return new NewsModel(title, category_id, author, description, image);
+  static create({
+    title,
+    category_id,
+    author = "",
+    description,
+    imageInput = ""
+  }) {
+    return new NewsModel(title, category_id, author, description, imageInput);
   }
 
   static async paginate() {
@@ -30,6 +36,14 @@ export class NewsModel {
   static async findOne(id) {
     try {
       return await http.get("/news", { params: id });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  static async findAll() {
+    try {
+      return await http.get("/news/all");
     } catch (error) {
       console.log(error);
     }
@@ -55,21 +69,19 @@ export class NewsModel {
       category_id: this.#category_id,
       author: this.#author,
       description: this.#description,
-      image: this.#image
+      image: this.#imageInput
     };
   }
 
   async save() {
     try {
-      return await http.post("/news", { ...this.data });
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  static async findAll() {
-    try {
-      return await http.get("/news/all");
+      return await http.postForm("/news", {
+        title: this.#title,
+        description: this.#description,
+        author: this.#author,
+        category_id: this.#category_id,
+        image: this.#imageInput.files[0]
+      });
     } catch (error) {
       console.log(error);
     }

@@ -12,11 +12,13 @@ export class CreateNewsController {
   category_id;
   author;
   description;
-  image;
+  #imageInput;
 
   constructor() {
     this.#formElement = document.querySelector("[data-newsForm]");
     this.#inputElements = document.querySelectorAll("[data-newsInput]");
+    this.#imageInput = document.querySelector(`[data-newsInput="image"]`);
+
     (async () => {
       const { data } = await CategoryModel.findAll();
 
@@ -29,12 +31,13 @@ export class CreateNewsController {
       element.addEventListener("change", (event) => {
         const input = element.getAttribute("data-newsInput");
 
-        this[`${input}`] = event.target.value;
+        if (input !== "image") this[`${input}`] = event.target.value;
       });
     });
 
     this.#formElement.addEventListener("submit", async (event) => {
       event.preventDefault();
+
       this.#newsModel = NewsModel.create(this.data);
 
       try {
@@ -52,7 +55,7 @@ export class CreateNewsController {
       category_id: Number(this.category_id),
       author: this.author,
       description: this.description,
-      image: this.image
+      imageInput: this.#imageInput
     };
   }
 }
