@@ -1,4 +1,5 @@
 import { CategoryModel } from "../models/CategoryModel.js";
+import { LoadingDisplay } from "../utils/LoadingDisplay.js";
 import { CreateCategoryView } from "../views/CreateCategoryView .js";
 
 export class CreateCategoryController {
@@ -24,13 +25,17 @@ export class CreateCategoryController {
 
     this.#formElement.addEventListener("submit", async (event) => {
       event.preventDefault();
+
+      LoadingDisplay.show();
       this.#categoryModel = CategoryModel.create(this.data);
 
       try {
         const response = await this.#categoryModel.save();
         this.#createCategoryView.showModal(response.status);
+        LoadingDisplay.hidden();
       } catch (error) {
         this.#createCategoryView.showModal(error.response.status);
+        LoadingDisplay.hidden();
       }
     });
   }

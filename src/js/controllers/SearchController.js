@@ -1,5 +1,6 @@
 import { NewsModel } from "../models/NewsModel.js";
 import { SearchModel } from "../models/SearchModel.js";
+import { LoadingDisplay } from "../utils/LoadingDisplay.js";
 import { NewsView } from "../views/NewsView.js";
 import { SearchView } from "../views/SearchView.js";
 
@@ -27,12 +28,14 @@ export class SearchController {
       }
     });
     this.#searchInput.addEventListener("change", async (event) => {
+      LoadingDisplay.show();
       this.#searchModel.update(event.target.value);
 
       const news = await NewsModel.filter(this.#searchModel.searchValue);
 
       this.#newsView = new NewsView(news);
       this.#newsView.showCards();
+      LoadingDisplay.hidden();
     });
 
     if (window.innerWidth < 980)

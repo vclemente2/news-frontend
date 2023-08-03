@@ -105,7 +105,7 @@ main {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 9999;
+  z-index: 9998;
 }
 .modal__closeIcon {
   cursor: pointer;
@@ -149,5 +149,53 @@ main {
   .modal__container--sm {
     max-width: 500px;
     padding: 5rem;
+  }
+}
+
+@keyframes rotate360 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.loading {
+  align-items: center;
+  background-color: #f6f6f6;
+  display: none;
+  left: 0;
+  height: 100vh;
+  position: fixed;
+  top: 64px;
+  width: 100vw;
+  z-index: 9999;
+}
+.loading__container {
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+}
+.loading__image {
+  animation: rotate360 1.5s linear infinite;
+  height: 20%;
+  width: 20%;
+}
+@media screen and (min-width: 768px) {
+  .loading__image {
+    height: 12%;
+    width: 12%;
+  }
+}
+@media screen and (min-width: 1080px) {
+  .loading__image {
+    height: 8%;
+    width: 8%;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .loading__image {
+    height: 5%;
+    width: 5%;
   }
 }/*# sourceMappingURL=tema.css.map */
