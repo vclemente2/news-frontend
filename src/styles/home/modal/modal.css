@@ -20,6 +20,29 @@
   height: 50vh;
   width: 100%;
 }
+.main__modal__delete {
+  align-self: flex-end;
+  font-size: 0.75rem;
+  justify-content: center;
+  margin-top: 1rem;
+  padding: 0;
+}
+.main__modal__submodal__buttonContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+@media screen and (min-width: 480px) {
+  .main__modal__submodal__buttonContainer {
+    flex-direction: row;
+  }
+}
+.main__modal__submodal__cancelButton {
+  width: 152px;
+}
+.main__modal__submodal__deleteButton {
+  width: 152px;
+}
 .main__list__author {
   display: flex;
   justify-content: space-between;

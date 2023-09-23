@@ -49,6 +49,14 @@ export class NewsModel {
     }
   }
 
+  static async destroy(id) {
+    try {
+      return await http.delete(`/news/${id}`);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   static async filter(text) {
     const response = await NewsModel.findAll();
 

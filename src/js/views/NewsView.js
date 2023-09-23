@@ -1,50 +1,21 @@
 export class NewsView {
-  #arrNews;
-  #modalElement;
-  #cardsElement;
-  #openModalButton;
-  #closeModalButton;
-
-  constructor(arrNews) {
-    this.#arrNews = arrNews;
-    this.#modalElement = document.querySelector("[data-modalContainer]");
-    this.#cardsElement = document.querySelector("[data-newsList]");
-  }
-
-  showCards() {
-    this.#cardsElement.innerHTML =
-      this.#arrNews.reduce((acc, cur) => {
-        return (acc += this.#templateCard(cur));
+  static showCards(htmlElement, arrNews) {
+    htmlElement.innerHTML =
+      arrNews.reduce((acc, cur) => {
+        return (acc += NewsView.#templateCard(cur));
       }, "") || "<h1>Nenhum resultado encontrado...</h1>";
-    this.#addButtonEvent();
   }
 
-  #showModal(id) {
-    this.#modalElement.style.display = "block";
-    this.#modalElement.innerHTML = this.#generateModal(id);
+  static showModal(htmlElement, id, arrNews) {
+    htmlElement.style.display = "block";
+    htmlElement.innerHTML = this.#generateModal(id, arrNews);
   }
 
-  #closeModal() {
-    this.#modalElement.style.display = "none";
+  static closeModal(htmlElement) {
+    htmlElement.style.display = "none";
   }
 
-  #addButtonEvent() {
-    this.#openModalButton = document.querySelectorAll("[data-modalLink]");
-    this.#openModalButton.forEach((link) => {
-      link.addEventListener("click", (event) => {
-        const newsId = event.currentTarget.id;
-        this.#showModal(newsId);
-        this.#closeModalButton = document.querySelector(
-          "[data-closeModalButton]"
-        );
-        this.#closeModalButton.addEventListener("click", () => {
-          this.#closeModal();
-        });
-      });
-    });
-  }
-
-  #dateFormatter(date) {
+  static #dateFormatter(date) {
     const dateObj = new Date(date);
 
     const day = String(dateObj.getDate()).padStart(2, 0);
@@ -54,14 +25,12 @@ export class NewsView {
     return `${day}/${month}/${year}`;
   }
 
-  #generateModal(id) {
-    const newsModal = this.#arrNews.find(
-      (news) => Number(news.id) === Number(id)
-    );
+  static #generateModal(id, arrNews) {
+    const newsModal = arrNews.find((news) => Number(news.id) === Number(id));
     return this.#templateModal(newsModal);
   }
 
-  #templateCard(news) {
+  static #templateCard(news) {
     return `
         <li class="main__list__item" id=${news.id} data-modalLink>
 
@@ -100,7 +69,7 @@ export class NewsView {
         `;
   }
 
-  #templateModal(news) {
+  static #templateModal(news) {
     return `
         <div class="modal__container container">
 
@@ -128,11 +97,29 @@ export class NewsView {
                       news.createdAt
                     }">${this.#dateFormatter(news.createdAt)}</time>
                 </div>
-
-                <button class="main__list__link secondaryButton" data-closeModalButton>Voltar</button>
                 
+               
+                <button class="main__list__link secondaryButton" data-closeModalButton>Voltar</button>
+
+                <button class="main__modal__delete secondaryDeleteButton">Excluir Notícia</button>
+                    
+                <div class="main__modal__submodal" data-warningDeleteNewsModal>
+                <div>
             </article>
         </div>
         `;
+  }
+
+  static #templateDeleteNewsModal() {
+    return `
+    <div class="modal__container--sm-column container">
+      <h2>Tem certeza que deseja excluir essa notícia? Essa operação é irreversível!</h2>
+                
+      <div class="main__modal__submodal__buttonContainer">
+          <button class="secondaryButton main__modal__submodal__cancelButton">Cancelar</button>
+          <button class="deleteButton main__modal__submodal__deleteButton">Excluir</button>
+      </div>
+    </div>  
+    `;
   }
 }

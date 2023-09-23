@@ -93,6 +93,29 @@ main {
   }
 }
 
+.deleteButton {
+  @extend .primaryButton;
+  background-color: $red;
+  color: $light-grey;
+
+  &:active {
+    background-color: $red-dark;
+  }
+}
+
+.secondaryDeleteButton {
+  @extend .deleteButton;
+
+  box-shadow: none;
+  background-color: inherit;
+  color: $red;
+
+  &:active {
+    background-color: inherit;
+    color: $red-dark;
+  }
+}
+
 .defaultForm {
   display: flex;
   flex-direction: column;
@@ -161,6 +184,12 @@ main {
         max-width: 500px;
         padding: 5rem;
       }
+    }
+
+    &--sm-column {
+      @extend .modal__container--sm;
+      flex-direction: column;
+      gap: 2rem;
     }
   }
 }
