@@ -1,5 +1,6 @@
 import { NewsModel } from "../models/NewsModel.js";
 import { SearchModel } from "../models/SearchModel.js";
+import { HtmlElements } from "../utils/HtmlElements.js";
 import { LoadingDisplay } from "../utils/LoadingDisplay.js";
 import { NewsView } from "../views/NewsView.js";
 import { SearchView } from "../views/SearchView.js";
@@ -9,7 +10,6 @@ export class SearchController {
   #searchModel;
   #searchButton;
   #searchView;
-  #newsView;
 
   constructor() {
     this.#searchInput = document.querySelector("[data-search]");
@@ -33,8 +33,8 @@ export class SearchController {
 
       const news = await NewsModel.filter(this.#searchModel.searchValue);
 
-      this.#newsView = new NewsView(news);
-      this.#newsView.showCards();
+      NewsView.showCards(HtmlElements.newsCardsElement(), news);
+
       LoadingDisplay.hidden();
     });
 

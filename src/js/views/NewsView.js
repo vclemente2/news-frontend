@@ -2,7 +2,7 @@ export class NewsView {
   static showCards(htmlElement, arrNews) {
     htmlElement.innerHTML =
       arrNews.reduce((acc, cur) => {
-        return (acc += NewsView.#templateCard(cur));
+        return (acc += this.#templateCard(cur));
       }, "") || "<h1>Nenhum resultado encontrado...</h1>";
   }
 

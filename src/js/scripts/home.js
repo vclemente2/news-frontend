@@ -5,5 +5,5 @@ import {
 } from "../controllers/index.js";
 
 new MenuController();
-new SearchController();
 new NewsController();
+new SearchController();

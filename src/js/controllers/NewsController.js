@@ -1,4 +1,5 @@
 import { NewsModel } from "../models/NewsModel.js";
+import { HtmlElements } from "../utils/HtmlElements.js";
 import { NewsView } from "../views/NewsView.js";
 
 export class NewsController {
@@ -9,12 +10,12 @@ export class NewsController {
   #buttonOpenNewsModal;
   #buttonCloseNewsModal;
 
-  #newsModelElement;
+  #newsModalElement;
   #newsCardsElement;
 
   constructor() {
-    this.#newsModelElement = document.querySelector("[data-modalContainer]");
-    this.#newsCardsElement = document.querySelector("[data-newsList]");
+    this.#newsModalElement = HtmlElements.newsModalElement();
+    this.#newsCardsElement = HtmlElements.newsCardsElement();
 
     NewsModel.findAll()
       .then((response) => {
@@ -36,7 +37,7 @@ export class NewsController {
         this.currentNews = event.currentTarget;
 
         NewsView.showModal(
-          this.#newsModelElement,
+          this.#newsModalElement,
           this.currentNews.id,
           this.#arrNews
         );
@@ -44,7 +45,7 @@ export class NewsController {
           "[data-closeModalButton]"
         );
         this.#buttonCloseNewsModal.addEventListener("click", () => {
-          NewsView.closeModal(this.#newsModelElement);
+          NewsView.closeModal(this.#newsModalElement);
         });
       });
     });
