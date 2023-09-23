@@ -4,6 +4,7 @@ import { HtmlElements } from "../utils/HtmlElements.js";
 import { LoadingDisplay } from "../utils/LoadingDisplay.js";
 import { NewsView } from "../views/NewsView.js";
 import { SearchView } from "../views/SearchView.js";
+import { NewsController } from "./NewsController.js";
 
 export class SearchController {
   #searchInput;
@@ -33,7 +34,8 @@ export class SearchController {
 
       const news = await NewsModel.filter(this.#searchModel.searchValue);
 
-      NewsView.showCards(HtmlElements.newsCardsElement(), news);
+      NewsView.showNewsCards(HtmlElements.newsCardsElement(), news);
+      NewsController.addModalButtonEvents(news);
 
       LoadingDisplay.hidden();
     });

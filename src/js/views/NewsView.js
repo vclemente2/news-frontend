@@ -1,14 +1,17 @@
 export class NewsView {
-  static showCards(htmlElement, arrNews) {
+  static showNewsCards(htmlElement, arrNews) {
     htmlElement.innerHTML =
       arrNews.reduce((acc, cur) => {
         return (acc += this.#templateCard(cur));
       }, "") || "<h1>Nenhum resultado encontrado...</h1>";
   }
 
-  static showModal(htmlElement, id, arrNews) {
+  static showModal(htmlElement, id = null, arrNews = null) {
     htmlElement.style.display = "block";
-    htmlElement.innerHTML = this.#generateModal(id, arrNews);
+
+    if (id && arrNews) {
+      htmlElement.innerHTML = this.#generateNewsModal(id, arrNews);
+    }
   }
 
   static closeModal(htmlElement) {
@@ -25,7 +28,7 @@ export class NewsView {
     return `${day}/${month}/${year}`;
   }
 
-  static #generateModal(id, arrNews) {
+  static #generateNewsModal(id, arrNews) {
     const newsModal = arrNews.find((news) => Number(news.id) === Number(id));
     return this.#templateModal(newsModal);
   }
@@ -104,6 +107,7 @@ export class NewsView {
                 <button class="main__modal__delete secondaryDeleteButton">Excluir Notícia</button>
                     
                 <div class="main__modal__submodal" data-warningDeleteNewsModal>
+                    ${this.#templateDeleteNewsModal()}
                 <div>
             </article>
         </div>

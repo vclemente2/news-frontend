@@ -4,19 +4,11 @@ import { NewsView } from "../views/NewsView.js";
 
 export class NewsController {
   #arrNews;
-  #currentNews;
+  static currentNews;
   // #page;
   // #lastPage;
-  #buttonOpenNewsModal;
-  #buttonCloseNewsModal;
-
-  #newsModalElement;
-  #newsCardsElement;
 
   constructor() {
-    this.#newsModalElement = HtmlElements.newsModalElement();
-    this.#newsCardsElement = HtmlElements.newsCardsElement();
-
     NewsModel.findAll()
       .then((response) => {
         this.#arrNews = response.data;
@@ -24,38 +16,29 @@ export class NewsController {
         // this.#lastPage = response.data.lastPage;
       })
       .then(() => {
-        NewsView.showCards(this.#newsCardsElement, this.#arrNews);
-        this.#buttonOpenNewsModal =
-          document.querySelectorAll("[data-modalLink]");
-        this.addModalButtonEvents();
+        NewsView.showNewsCards(HtmlElements.newsCardsElement(), this.#arrNews);
+
+        NewsController.addModalButtonEvents(this.#arrNews);
       });
   }
 
-  addModalButtonEvents() {
-    this.#buttonOpenNewsModal.forEach((link) => {
+  static addModalButtonEvents(arrNews) {
+    HtmlElements.buttonsOpenNewsModalElement().forEach((link) => {
       link.addEventListener("click", (event) => {
-        this.currentNews = event.currentTarget;
+        NewsController.currentNews = event.currentTarget;
+
+        console.log(NewsController.currentNews);
 
         NewsView.showModal(
-          this.#newsModalElement,
-          this.currentNews.id,
-          this.#arrNews
+          HtmlElements.newsModalElement(),
+          NewsController.currentNews.id,
+          arrNews
         );
-        this.#buttonCloseNewsModal = document.querySelector(
-          "[data-closeModalButton]"
-        );
-        this.#buttonCloseNewsModal.addEventListener("click", () => {
-          NewsView.closeModal(this.#newsModalElement);
+
+        HtmlElements.buttonCloseModalElement().addEventListener("click", () => {
+          NewsView.closeModal(HtmlElements.newsModalElement());
         });
       });
     });
-  }
-
-  set currentNews(news) {
-    this.#currentNews = news;
-  }
-
-  get currentNews() {
-    return this.#currentNews;
   }
 }
