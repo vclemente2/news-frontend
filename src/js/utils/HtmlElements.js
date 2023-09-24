@@ -14,4 +14,24 @@ export class HtmlElements {
   static buttonCloseModalElement() {
     return document.querySelector("[data-closeModalButton]");
   }
+
+  static buttonDeleteNewsElelement() {
+    return document.querySelector("[data-deleNewsButton]");
+  }
+
+  static warningDeleteNewsModalElement() {
+    return document.querySelector("[data-warningDeleteNewsModal]");
+  }
+
+  static cancelDeleteNewsElement() {
+    return document.querySelector("[data-cancelDeleteNews]");
+  }
+
+  static confirmDeleteNewsElement() {
+    return document.querySelector("[data-confirmDeleteNews]");
+  }
+
+  static buttonOkAfterDeleteNewsElement() {
+    return document.querySelector("[data-okButton]");
+  }
 }

@@ -30,10 +30,13 @@
             font-size: 0.75rem;
             justify-content: center;
             margin-top: 1rem;
+            outline: transparent;
             padding: 0;
         }
 
         &__submodal {
+            display: none;
+
             &__buttonContainer {
                 display: flex;
                 flex-direction: column;

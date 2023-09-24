@@ -18,6 +18,14 @@ export class NewsView {
     htmlElement.style.display = "none";
   }
 
+  static showSuccessfullyDeletedNewsModal(htmlElement) {
+    htmlElement.innerHTML = this.#templateSuccessfullyDeleteNewsModal();
+  }
+
+  static showErrorDeletedNewsModal(htmlElement) {
+    htmlElement.innerHTML = this.#templateErrorDeleteNewsModal();
+  }
+
   static #dateFormatter(date) {
     const dateObj = new Date(date);
 
@@ -104,7 +112,7 @@ export class NewsView {
                
                 <button class="main__list__link secondaryButton" data-closeModalButton>Voltar</button>
 
-                <button class="main__modal__delete secondaryDeleteButton">Excluir Notícia</button>
+                <button class="main__modal__delete secondaryDeleteButton" data-deleNewsButton>Excluir Notícia</button>
                     
                 <div class="main__modal__submodal" data-warningDeleteNewsModal>
                     ${this.#templateDeleteNewsModal()}
@@ -120,9 +128,29 @@ export class NewsView {
       <h2>Tem certeza que deseja excluir essa notícia? Essa operação é irreversível!</h2>
                 
       <div class="main__modal__submodal__buttonContainer">
-          <button class="secondaryButton main__modal__submodal__cancelButton">Cancelar</button>
-          <button class="deleteButton main__modal__submodal__deleteButton">Excluir</button>
+          <button class="secondaryButton main__modal__submodal__cancelButton" data-cancelDeleteNews>Cancelar</button>
+          <button class="deleteButton main__modal__submodal__deleteButton" data-confirmDeleteNews>Excluir</button>
       </div>
+    </div>  
+    `;
+  }
+
+  static #templateSuccessfullyDeleteNewsModal() {
+    return `
+    <div class="modal__container--sm-column container">
+      <h2>Notícia Excluída Com Sucesso!</h2>
+                
+      <button class="secondaryButton" data-okButton>Ok</button>
+    </div>  
+    `;
+  }
+
+  static #templateErrorDeleteNewsModal() {
+    return `
+    <div class="modal__container--sm-column container">
+      <h2 style="color: #c62a2a">Erro Durante a Exclusão!</h2>
+                
+      <button class="secondaryButton" data-okButton>Ok</button>
     </div>  
     `;
   }
