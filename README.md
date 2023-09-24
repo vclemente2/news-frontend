@@ -1,6 +1,6 @@
 # Cadastro de Notícias - Frontend
 
-Este é o repositório do frontend da aplicação de cadastro de notícias. Esta interface permite aos usuários visualizar, criar e gerenciar notícias e categorias relacionadas.
+Este é o repositório do frontend da aplicação de cadastro de notícias. Esta interface permite aos usuários criar, gerenciar notícias e categorias relacionadas.
 
 ## Recursos
 
@@ -11,9 +11,10 @@ A aplicação frontend oferece as seguintes funcionalidades:
   - Os usuários podem visualizar todas as notícias cadastradas no sistema.
   - As notícias são exibidas com seus respectivos títulos, conteúdos, imagens e categorias associadas.
 
-- Criação de Nova Notícia:
+- Gerenciamento de Notícias:
 
   - Os usuários podem criar uma nova notícia fornecendo um título, conteúdo, imagem e selecionando uma categoria relacionada.
+  - Os usuários podem excluir notícias.
 
 - Gerenciamento de Categorias:
   - Os usuários podem visualizar todas as categorias cadastradas no sistema.
@@ -70,7 +71,7 @@ O frontend da aplicação estará em execução localmente e pode ser acessado e
 
 ## Uso da Aplicação
 
-Após executar o frontend localmente ou acessar o deploy da Vercel, você poderá utilizar a aplicação para visualizar notícias existentes, criar novas notícias e gerenciar categorias.
+Após executar o frontend localmente ou acessar o deploy da Vercel, você poderá utilizar a aplicação para visualizar notícias existentes, criar novas notícias, excluir notícias e gerenciar categorias.
 
 **Visualização de Notícias:**
 
